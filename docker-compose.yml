@@ -16,13 +16,12 @@ services:
       - db_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
-
   php:
     image: php:8.2-apache
     container_name: alfabetiza_php
     restart: always
     volumes:
-      - ./app:/var/www/html
+      - ./app:/var/www/html  # Monta tu carpeta app directamente en el DocumentRoot
     ports:
       - "8080:80"
     depends_on:
