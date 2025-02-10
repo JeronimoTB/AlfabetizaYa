@@ -1,11 +1,15 @@
 <?php
-$host = "db"; // Servicio MySQL dentro de Docker
-$user = "user";
-$pwd = "password";
-$dbname = "alfabetiza";
+// Usar las variables de entorno pasadas a Render
+$host = 'db'; // Este debe coincidir con el nombre del servicio en docker-compose.yml
+$user = getenv('MYSQL_USER') ?: 'root';
+$password = getenv('MYSQL_PASSWORD') ?: '';
+$database = getenv('MYSQL_DATABASE') ?: 'alfabetiza';
 
-$connection = mysqli_connect($host, $user, $pwd, $dbname);
+// Conexión
+$conn = mysqli_connect($host, $user, $password, $database);
 
-if (!$connection) {
-    die("Error: No se pudo conectar a MySQL. " . mysqli_connect_error());
+// Verificar conexión
+if (!$conn) {
+    die("Error de conexión: " . mysqli_connect_error());
 }
+?>
