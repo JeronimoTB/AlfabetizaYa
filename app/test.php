@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('db', 'user', 'password', 'alfabetiza');
+$conn = mysqli_connect('localhost', 'user', 'password', 'alfabetiza');
 
 if ($conn) {
     echo "Conexión exitosa a la base de datos.";
