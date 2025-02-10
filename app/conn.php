@@ -1,15 +1,13 @@
 <?php
-// Usar las variables de entorno pasadas a Render
-$host = 'db'; // Este debe coincidir con el nombre del servicio en docker-compose.yml
-$user = getenv('MYSQL_USER') ?: 'root';
-$password = getenv('MYSQL_PASSWORD') ?: '';
-$database = getenv('MYSQL_DATABASE') ?: 'alfabetiza';
+$host = 'db'; // Nombre del servicio de MySQL definido en Docker Compose
+$user = 'user'; // Usuario configurado en el archivo Docker Compose
+$password = 'password'; // Contraseña configurada en el archivo Docker Compose
+$database = 'alfabetiza'; // Base de datos configurada en Docker Compose
 
-// Conexión
 $conn = mysqli_connect($host, $user, $password, $database);
 
-// Verificar conexión
 if (!$conn) {
-    die("Error de conexión: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
+
 ?>
