@@ -21,7 +21,7 @@ services:
     container_name: alfabetiza_php
     restart: always
     volumes:
-      - ./app:/var/www/html  # Monta tu carpeta app directamente en el DocumentRoot
+      - ./app:/var/www/html
     ports:
       - "8080:80"
     depends_on:
